@@ -16,7 +16,7 @@ resource "mysql_user" "hfm" {
 }
 
 resource "mysql_grant" "hfm" {
-  user = "hfm"
+  user = "${mysql_user.hfm.user}"
   host = "%"
   database = "sample"
   privileges = ["ALL"]
